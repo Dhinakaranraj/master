@@ -36,12 +36,12 @@ public class Controller {
 	public Customer getById(@PathVariable Long id) {
 		return service.getById(id);
 	}
-	@PutMapping
+	@PutMapping("/{id}/update")
 	public ResponseEntity<?>updateAccount(@PathVariable Long id,@RequestBody Customer customer){
 		service.updateAccount(id,customer);
 		return ResponseEntity.ok().body("update Successfully");
 	}
-	@DeleteMapping
+	@DeleteMapping("/{id}/delete")
 	public ResponseEntity<?>deleteAccount(@PathVariable Long id){
 		service.deleteAccount(id);
 		return ResponseEntity.ok().body("delete sucessfully");
