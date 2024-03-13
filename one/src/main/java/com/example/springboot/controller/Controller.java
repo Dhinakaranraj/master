@@ -22,12 +22,12 @@ public class Controller {
 	@Autowired
 	ServiceIF service;
 
-	@PostMapping
+	@PostMapping("/create")
 	public Customer createAccount(@RequestBody Customer customer ) {
 		return service.createAccount(customer);
 	}
 	
-	@GetMapping
+	@GetMapping("/getall")
 	public List<Customer> getAllAccounts() {
 		return service.getAllAccounts();
 	}
