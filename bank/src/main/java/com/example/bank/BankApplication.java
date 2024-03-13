@@ -1,13 +1,13 @@
-package com.example.spring;
+package com.example.bank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiSwaggerApplication {
+public class BankApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiSwaggerApplication.class, args);
+		SpringApplication.run(BankApplication.class, args);
 	}
 
 }

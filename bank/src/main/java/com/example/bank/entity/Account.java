@@ -1,6 +1,4 @@
-package com.example.spring.model;
-
-import java.io.Serializable;
+package com.example.bank.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,24 +8,20 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 
 @Entity
-@Table
 @Data
+@Table(name="account")
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Course implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
- private int id;
- private String name;
- private double price;
- 
+	private Long id;
+	
+	private String accountholdername;
+	
+	private double balance;
+	
+
 }

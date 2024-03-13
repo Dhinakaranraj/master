@@ -1,10 +1,10 @@
-package com.example.spring;
+package com.example.bank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiSwaggerApplicationTests {
+class BankApplicationTests {
 
 	@Test
 	void contextLoads() {
