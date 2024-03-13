@@ -18,7 +18,7 @@ import com.example.bank.Dto.AccountDto;
 import com.example.bank.service.AcccountService;
 
 @RestController
-@RequestMapping("/api/accounts")
+@RequestMapping("/api")
 public class AccountController {
 
 	
@@ -33,7 +33,7 @@ public class AccountController {
 
 	//Add Account REST API
 	
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<AccountDto>addAccount(@RequestBody AccountDto accountdto)
 	{
 		return new ResponseEntity<>(acccountservice.createAccount(accountdto),HttpStatus.CREATED);
