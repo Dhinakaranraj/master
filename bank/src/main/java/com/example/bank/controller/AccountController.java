@@ -41,7 +41,7 @@ public class AccountController {
 	
 	//Get account REST API
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{id}/get")
 	public ResponseEntity<AccountDto>getAccountById(@PathVariable Long id){
 	AccountDto accountdto=acccountservice.getAccountById(id);
 	return ResponseEntity.ok(accountdto);
