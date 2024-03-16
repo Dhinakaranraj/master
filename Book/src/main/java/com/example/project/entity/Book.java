@@ -9,8 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,23 +17,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="bikedetails")
-public class Bike {
-
+@Table(name="book")
+public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-    @NotBlank(message = "Bike name should not be blank")
 	private String name;
-    @NotBlank(message = "Bike number should not be blank")
-	private String bikeNo;
-    @NotNull(message = "Modal year cannot be null")
-	private int modalyear;
+	private String description;
+	private Long yearOfPublication;
+	private String bookType;
 	
 	@OneToOne
+	@JoinColumn(name="author_id")
 	@JsonBackReference
-	@JoinColumn(name="per_fk")
-	private Person person;
-	
+	private Author author;
+
 }

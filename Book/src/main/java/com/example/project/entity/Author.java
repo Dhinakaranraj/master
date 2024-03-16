@@ -1,5 +1,7 @@
 package com.example.project.entity;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -14,28 +16,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor(staticName = "bulid")
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="persondetails")
-public class Person {
-	
+@Table(name="author")
+public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id ;
 	private String name;
-	private String address;
 	private String gender;
-	private double mobileNo;
+	private LocalDate createdAt;
 	
-	@OneToOne(mappedBy = "person",cascade = CascadeType.ALL)
-	@JsonManagedReference
-	private Bike bike;
-
-	
-
-	
-	
-	
+	@OneToOne(mappedBy = "author",cascade = CascadeType.ALL)
+	@JsonManagedReference //parent
+	private Book book;
 
 }

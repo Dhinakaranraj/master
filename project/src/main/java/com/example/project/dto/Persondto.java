@@ -1,6 +1,9 @@
 package com.example.project.dto;
 
+import com.example.project.entity.Person;
+
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +18,10 @@ public class Persondto {
 	private String address;
     @NotBlank(message = "fill up your gender")
 	private String gender;
-    @NotBlank
-	private double mobileNo;
-}
+    @NotNull(message = "Mobile number must not be null.")
+    private Double mobileNo;
+    
+    private Person person;
+    
+}    
 

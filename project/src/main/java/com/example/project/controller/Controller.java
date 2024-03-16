@@ -1,9 +1,9 @@
 package com.example.project.controller;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.project.apiresponse.APIResponse;
@@ -30,14 +29,14 @@ public class Controller {
 	ServiceInterface service;
 
 	@PostMapping("/create")
-	public Person createAccount(@RequestBody @Valid Persondto persondto) {
-		return service.createAccount(persondto);
+	public ResponseEntity<Person> createAccount(@RequestBody @Valid Persondto persondto) {
+		Person createPerson= service.createAccount(persondto);
+		 return ResponseEntity.status(HttpStatus.CREATED).body(createPerson);
 	}
 	
 	@GetMapping("/getall")
-	public List<Person> getAllAccounts(@RequestParam (value="address",required = false)Set<String> add,
-			                           @RequestParam(value ="gender",required = false) String gend){
-		return service.getAllAccounts(add,gend);
+	public List<Person> getAllAccounts(){
+		return service.getAllAccounts();
 	}
 	
 	@GetMapping("/{id}/get")
@@ -53,7 +52,7 @@ public class Controller {
 	
 	@DeleteMapping("/{id}/delete")
 	public ResponseEntity<?>deleteAccount(@PathVariable int id){
-		service.createAccount(id);
+		service.deleteAccount(id);
 		return ResponseEntity.ok().body("delete successfully!");
 	}
 	

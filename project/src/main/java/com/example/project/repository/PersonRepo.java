@@ -10,5 +10,7 @@ import com.example.project.entity.Person;
 
 @Repository
 public interface PersonRepo extends JpaRepository<Person, Integer> {
-	List<Person>findAllByAddressAndGender(Set<String> add,String gen);
+
+
+	List<Person> findAllByAddressInAndGender(Set<String> add, String gen);
 }
