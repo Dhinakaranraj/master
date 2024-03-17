@@ -1,12 +1,18 @@
 package com.example.project.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.project.common.APIResponse;
+import com.example.project.data.BookData;
 import com.example.project.entity.Author;
+import com.example.project.entity.Book;
 import com.example.project.repository.AuthorRepository;
 import com.example.project.repository.BookRepository;
 
@@ -24,8 +30,12 @@ public class ServiceImple implements ServiceIF {
 	}
 
 	@Override
-	public List<Author> getAllAccounts() {
-		return authorRepo.findAll();
+	public List<Author> getAllAccounts(Set<String>gen,String name) {
+		if(gen==null) {
+			return authorRepo.findAll();
+		}else {
+			return authorRepo.findAllByGenderInAndName(gen,name);
+		}
 	}
 
 	@Override
@@ -53,7 +63,30 @@ public class ServiceImple implements ServiceIF {
 	 authorRepo.deleteById(id);
 	 return ResponseEntity.ok().body("delete Successfully");
 	}
-	
+
+	@Override
+	public List<Book> getByRawQuery(Set<Integer> yop,String book) {
+		return bookRepo.findAllByYearOfPublicationAndBookType(yop,book);
+	}
+
+	@Override
+	public APIResponse getByBook(Set<String> bok) {
+		
+		APIResponse apiResponse=new APIResponse();
+		
+		//db call
+		List<Book> booklist=bookRepo.findAllByBookTypeIn(bok);
+
+        //set data
+		BookData bookData=new BookData();
+		bookData.setBooks(booklist);
+		
+		//set  api response
+		apiResponse.setData(bookData);
+		
+		return apiResponse;
+	}
+
 	
 	
 
