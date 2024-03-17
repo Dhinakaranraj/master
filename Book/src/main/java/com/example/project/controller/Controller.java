@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.project.common.APIResponse;
+import com.example.project.common.UserNotFoundException;
 import com.example.project.entity.Author;
 import com.example.project.entity.Book;
 import com.example.project.service.ServiceIF;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
@@ -39,7 +38,7 @@ public class Controller {
     	return service.getAllAccounts(gen,name);
     }
     @GetMapping("/{id}")
-    public Author getById(@PathVariable int id) {
+    public Author getById(@PathVariable int id) throws UserNotFoundException {
     	return service.getById(id);
     }
    

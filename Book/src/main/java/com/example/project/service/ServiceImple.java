@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.project.common.APIResponse;
 import com.example.project.common.BadRequestException;
 import com.example.project.common.Error;
+import com.example.project.common.UserNotFoundException;
 import com.example.project.data.BookData;
 import com.example.project.entity.Author;
 import com.example.project.entity.Book;
@@ -53,8 +54,14 @@ public class ServiceImple implements ServiceIF {
 	}
 
 	@Override
-	public Author getById(int id) {
-		return authorRepo.findById(id).orElse(null);
+	public Author getById(int id) throws UserNotFoundException {
+		Author author= authorRepo.findById(id).orElse(null);
+		if(author!=null) {
+			return author;
+		}else {
+			throw new UserNotFoundException("User Id "+id+" not found your database");
+		}
+		
 	}
 
 	@Override

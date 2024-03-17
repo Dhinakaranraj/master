@@ -16,16 +16,17 @@ public class AuthorValidation {
 		List<Error>errors=new ArrayList<>();
 		
 		//name
-		if(author.getName()==null) {
-			Error error=new Error("name","name is not null");
+		if(author.getName().isEmpty()|| author.getName().length()==0) {
+			Error error=new Error("name","please send proper name.its empty");
 			errors.add(error);
 		}
 		//gender
-		if(author.getGender()==null) {
-			Error error=new Error("gender","name is not null");
+		if(author.getGender().isBlank()||author.getGender().length()==0) {
+			Error error=new Error("gender","gender is blank please fill up");
 			errors.add(error);
 		}
-		
+		if(author.getCreatedAt()==null)
+			errors.add(new Error("createdAt","Creation date is missing"));
 		
 		return errors;
 	}

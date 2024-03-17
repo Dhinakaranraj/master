@@ -35,7 +35,7 @@ public class GobalException {
 	    
     //Empty fields Exception
 	    
-	    @ExceptionHandler
+	    @ExceptionHandler(BadRequestException.class)
 	    public ResponseEntity<?> fieldException(BadRequestException ex){
 	    	APIResponse error=new APIResponse();
 	    	error.setError(ex.getErrors());
@@ -46,5 +46,13 @@ public class GobalException {
 	    }
 	    
 	    
-	    
+	    @ExceptionHandler(UserNotFoundException.class)
+	    public ResponseEntity<?> notFound(UserNotFoundException ex){
+	    	APIResponse error=new APIResponse();
+	    	error.setError(ex.getMessage());
+	    	error.setStatus(HttpStatus.BAD_REQUEST.value());
+	    	error.setData("Oops..Somthing went wrong");
+	    	
+	    	return ResponseEntity.status(400).body(error);
+	    }
 }

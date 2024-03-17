@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.project.common.APIResponse;
+import com.example.project.common.UserNotFoundException;
 import com.example.project.entity.Author;
 import com.example.project.entity.Book;
 
@@ -17,7 +18,7 @@ public interface ServiceIF {
 
 	List<Author> getAllAccounts(Set<String>gen,String nmae);
 
-	Author getById(int id);
+	Author getById(int id) throws UserNotFoundException;
 
 
 
