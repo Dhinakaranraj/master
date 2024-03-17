@@ -20,6 +20,8 @@ import com.example.project.entity.Author;
 import com.example.project.entity.Book;
 import com.example.project.service.ServiceIF;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class Controller {
@@ -62,5 +64,10 @@ public class Controller {
 	   return service.getByBook(bok);
    }
   
+   @GetMapping("/exception")
+	   public APIResponse getException(@RequestParam (value="number",required = false)Integer num) {
+		   return service.getException(num);
+	   }
+   }
     
-  }
+  

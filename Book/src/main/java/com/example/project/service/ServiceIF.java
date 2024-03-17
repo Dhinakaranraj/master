@@ -30,5 +30,7 @@ public interface ServiceIF {
 
 	APIResponse getByBook(Set<String> bok);
 
+	APIResponse getException(Integer num);
+
 
 }

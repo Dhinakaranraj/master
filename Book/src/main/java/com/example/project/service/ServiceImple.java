@@ -1,8 +1,6 @@
 package com.example.project.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.project.common.APIResponse;
+import com.example.project.common.BadRequestException;
+import com.example.project.common.Error;
 import com.example.project.data.BookData;
 import com.example.project.entity.Author;
 import com.example.project.entity.Book;
 import com.example.project.repository.AuthorRepository;
 import com.example.project.repository.BookRepository;
+import com.example.project.validator.AuthorValidation;
 
 @Service
 public class ServiceImple implements ServiceIF {
@@ -24,8 +25,21 @@ public class ServiceImple implements ServiceIF {
 	@Autowired
 	BookRepository bookRepo;
 
+	@Autowired
+	AuthorValidation authorValid;
+	
 	@Override
 	public Author createAccount(Author author) {
+		
+		//validation
+		List<Error> errors= authorValid.validCreateAuthor(author);
+		
+		//if not success
+		if(errors.size()>0) {
+			throw new BadRequestException(" bad request",errors);
+		}
+		
+		
 		return authorRepo.save(author);
 	}
 
@@ -85,6 +99,16 @@ public class ServiceImple implements ServiceIF {
 		apiResponse.setData(bookData);
 		
 		return apiResponse;
+	}
+
+	@Override
+	public APIResponse getException(Integer num) {
+		
+		int result=100/num;
+		APIResponse apirespond=new APIResponse();
+		apirespond.setData(result);
+		return apirespond;
+
 	}
 
 	
