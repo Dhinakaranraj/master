@@ -11,7 +11,7 @@ import com.example.project.entity.Author;
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-
+//Requestparam
 	List<Author> findAllByGenderInAndName(Set<String> gen,String name);
 
 

@@ -29,7 +29,7 @@ public class Book {
 	
 	@OneToOne
 	@JoinColumn(name="author_id")
-	@JsonBackReference
+	@JsonBackReference                     //child
 	private Author author;
 
 }

@@ -20,8 +20,6 @@ public interface ServiceIF {
 
 	Author getById(int id) throws UserNotFoundException;
 
-
-
 	ResponseEntity<?> updateAccount(int id, Author author);
 
 

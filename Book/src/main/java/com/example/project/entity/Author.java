@@ -30,7 +30,7 @@ public class Author {
 	private LocalDate createdAt;
 	
 	@OneToOne(mappedBy = "author",cascade = CascadeType.ALL)
-	@JsonManagedReference //parent
+	@JsonManagedReference                                        //parent
 	private Book book;
 
 }

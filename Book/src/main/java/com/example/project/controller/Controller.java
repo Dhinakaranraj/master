@@ -28,41 +28,50 @@ public class Controller {
 	@Autowired
 	ServiceIF service;
 	
+	//Normal post mapping 
 	@PostMapping
 	public Author createAccount(@RequestBody Author author){
 		return service.createAccount(author);
 	}
+	
+	//Normal get mapping and Multiple Requestparam
     @GetMapping("/get")
     public List<Author>getAllAccounts(@RequestParam (value="gender",required = false)Set<String> gen,
     		                          @RequestParam(value="name",required = false)String name){
     	return service.getAllAccounts(gen,name);
     }
+    //Normal get mapping and UserNotFoundException 
     @GetMapping("/{id}")
     public Author getById(@PathVariable int id) throws UserNotFoundException {
     	return service.getById(id);
     }
    
+    //Normal put mapping
    @PutMapping("/{id}")
    public ResponseEntity<?>updateAccount(@PathVariable int id,@RequestBody Author author){
 	 return service.updateAccount(id,author);
    }
     
+   //Normal delete mapping
    @DeleteMapping("/{id}")
    public ResponseEntity<?>deleteAccount(@PathVariable int id){
 	  return service.deleteAccount(id);
    }
    
+   //Multiple Requestparam with query
    @GetMapping("/raw")
    public List<Book>getByRawQuery(@RequestParam(value="yearOfPublication",required = false)Set<Integer>yop,
 		                           @RequestParam(value="bookType",required = false)String book){
 	   return service.getByRawQuery(yop,book);
    }
    
+   //API Response
    @GetMapping("/find")
    public APIResponse getByBook(@RequestParam(value="bookType",required = false)Set<String> bok) {
 	   return service.getByBook(bok);
    }
   
+  //Arithmetic  
    @GetMapping("/exception")
 	   public APIResponse getException(@RequestParam (value="number",required = false)Integer num) {
 		   return service.getException(num);

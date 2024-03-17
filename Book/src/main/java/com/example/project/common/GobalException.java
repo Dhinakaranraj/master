@@ -45,6 +45,7 @@ public class GobalException {
 	    	return ResponseEntity.status(400).body(error);
 	    }
 	    
+	  //User Id Not FoundException
 	    
 	    @ExceptionHandler(UserNotFoundException.class)
 	    public ResponseEntity<?> notFound(UserNotFoundException ex){
