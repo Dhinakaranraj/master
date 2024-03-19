@@ -3,6 +3,7 @@ package com.example.project.service;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,12 @@ public interface ServiceIF {
 	APIResponse getByBook(Set<String> bok);
 
 	APIResponse getException(Integer num);
+
+	List<Book> getByPaginationField(String field);
+
+	 Page<Author> getByPagination(int offset, int pageSize);
+
+	Page<Author> getByPaginationWithSort(int offset, int pageSize, String field);
 
 
 }

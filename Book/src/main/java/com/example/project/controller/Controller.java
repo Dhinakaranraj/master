@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -76,6 +77,29 @@ public class Controller {
 	   public APIResponse getException(@RequestParam (value="number",required = false)Integer num) {
 		   return service.getException(num);
 	   }
+   
+   //pagination for fields
+   @GetMapping("/pagination/{field}")
+   public List<Book> getByPaginationField(@PathVariable String field){
+	 return   service.getByPaginationField(field);
+	  
    }
-    
+   
+   //pagination 0/10
+   @GetMapping("/page/{offset}/{pageSize}")
+   public  Page<Author>getByPagination(@PathVariable int offset,@PathVariable int pageSize){
+	   Page<Author> authorWithPagination=  service.getByPagination(offset,pageSize);
+	   return  authorWithPagination;
+   }
+   
+   //pagination with sorting and fields
+   @GetMapping("/pagesort/{offset}/{pageSize}/{field}")
+   public  Page<Author>getByPaginationWithSort(@PathVariable int offset,@PathVariable int pageSize,@PathVariable String field){
+	   Page<Author> authorWithPagination=  service.getByPaginationWithSort(offset,pageSize,field);
+	   return  authorWithPagination;
+   }
+   
+   
+   }
+
   

@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -115,6 +118,25 @@ public class ServiceImple implements ServiceIF {
 		APIResponse apirespond=new APIResponse();
 		apirespond.setData(result);
 		return apirespond;
+
+	}
+
+	@Override
+	public List<Book> getByPaginationField(String field) {
+	 return bookRepo.findAll(Sort.by(Sort.Direction.ASC,field));
+	}
+
+	@Override
+	public Page<Author> getByPagination(int offset, int pageSize) {
+		Page<Author> authorpage=authorRepo.findAll(PageRequest.of(offset, pageSize));
+		return authorpage;
+		
+	}
+
+	@Override
+	public Page<Author> getByPaginationWithSort(int offset, int pageSize, String field) {
+		Page<Author> authorpage=authorRepo.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
+		return authorpage;
 
 	}
 
