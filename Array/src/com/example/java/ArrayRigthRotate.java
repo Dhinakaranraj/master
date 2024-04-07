@@ -1,5 +1,7 @@
 package com.example.java;
 
+//4.Program to right rotate the elements of an array
+
 public class ArrayRigthRotate {
 	public static void main(String args[]) {
 		

@@ -1,5 +1,7 @@
 package com.example.java;
 
+//5.Program to print the duplicate elements of an array
+
 public class DuplicateElementOfArray {
 	public static void main(String args[]) {
 		

@@ -2,6 +2,8 @@ package com.example.java;
 
 import java.util.Arrays;
 
+//7.Program to print the sort number of an array in ASC
+
 public class SortingStringASC {
 
 	public static void main(String args[]) {

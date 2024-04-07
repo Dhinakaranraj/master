@@ -1,5 +1,7 @@
 package com.example.java;
 
+//1.Program to copy all elements of one array into another array
+
 public class CopyArrayAnother {
 	public static void main(String args[]) {
 		

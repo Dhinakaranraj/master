@@ -1,5 +1,7 @@
 package com.example.java;
 
+//2.Program to find the frequency of each element in the array
+
 public class FrequencyOfArray {
 	public static void main(String args[]) {
 		
