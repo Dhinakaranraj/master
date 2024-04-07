@@ -10,16 +10,16 @@ public class ArrayRigthRotate {
 		     System.out.print(arr[i]+" ");	
 		}
 		
-		int temp=arr[arr.length-1];
-		int i=arr.length-1;
+		int temp=arr[arr.length-1];  //5
+		int i=arr.length-1; //5
 		
-		while(i>0) {
+		while(i>0) { //4>0
 			
-			arr[i]=arr[i-1];
-			i=i-1;
+			arr[i]=arr[i-1]; //60=50,50=40,40=30,30=20
+			i=i-1;           //  50    40   30     20 
 		}
 		
-		arr[i]=temp;
+		arr[i]=temp;  //10
 		
 		System.out.print("\nBefore right shift: ");
 		for(int j=0; j<arr.length; j++) {
