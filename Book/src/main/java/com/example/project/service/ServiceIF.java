@@ -38,5 +38,7 @@ public interface ServiceIF {
 
 	Page<Author> getByPaginationWithSort(int offset, int pageSize, String field);
 
+	Page<Book> getByPageSort(int offset, int pageSize, String field);
+
 
 }

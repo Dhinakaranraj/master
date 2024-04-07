@@ -140,6 +140,11 @@ public class ServiceImple implements ServiceIF {
 
 	}
 
+	@Override
+	public Page<Book> getByPageSort(int offset, int pageSize, String field) {
+		return bookRepo.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.ASC,field)));
+	}
+
 	
 	
 

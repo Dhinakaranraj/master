@@ -98,7 +98,11 @@ public class Controller {
 	   Page<Author> authorWithPagination=  service.getByPaginationWithSort(offset,pageSize,field);
 	   return  authorWithPagination;
    }
-   
+   //pagination
+   @GetMapping("/pageniation/{offset}/{pageSize}/{field}")
+   public Page<Book>getByPageSort(@PathVariable int offset,@PathVariable int pageSize,@PathVariable String field){
+	   return service.getByPageSort(offset,pageSize,field);
+   }
    
    }
 
