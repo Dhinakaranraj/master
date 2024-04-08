@@ -1,6 +1,6 @@
 package com.example.java;
 
-//10.Program to print the elements of an array present on even position
+//10.Program to print the elements of an array present on even Number
 
 public class EvenNumberOfArray {
        public static void main(String args[]) {
