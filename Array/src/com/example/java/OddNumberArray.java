@@ -1,6 +1,6 @@
 package com.example.java;
 
-//11.Program to print the elements of an array present on odd Number
+//11.Program to print the elements of an array present on an odd Number
 
 public class OddNumberArray {
       public static void main(String args[]) {
@@ -13,8 +13,9 @@ public class OddNumberArray {
     	  }
     	  
     	  System.out.print("\nOdd Number Of Array: ");
-    	  for(int j=0; j<arr.length; j+=2) {
-    		  System.out.print(arr[j]+" ");
+    	  for(int j=0; j<arr.length; j++) {
+    		 if(arr[j]%2==1){
+                 System.out.print(arr[j]+" ");
     	  }
       }
 }
