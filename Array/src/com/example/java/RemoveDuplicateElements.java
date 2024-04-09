@@ -1,6 +1,6 @@
 package com.example.java;
 
-//26.Java Program to remove duplicate element in an Array(Sorted)
+//26.Java Program to remove duplicate element in an Array(method 1)
 
 public class RemoveDuplicateElements {
      public static void main(String args[]) {
