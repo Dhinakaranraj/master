@@ -1,4 +1,4 @@
-package com.example.student.Entity;
+package com.example.MVC.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,20 +14,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="student")
+@Table(name="students")
 public class Student {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="first_name")
-	private String firstname;
+	@Column(name="first_name", nullable = false)
+	private String firstName;
 	
 	@Column(name="last_name")
-	private String lastname;
+	private String lastName;
 	
 	@Column(name="email")
 	private String email;
+	
+	
+	
 
 }

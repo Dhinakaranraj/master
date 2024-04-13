@@ -37,25 +37,25 @@ public class StudentController {
 		return "redirect:/student";
 	}
 	
-	@GetMapping("/student/edit/{StudentId}")
-	public String editStudentForm(@PathVariable Long StudentId,Model model) {
-		model.addAttribute("student", service.getStudentById(StudentId));
+	@GetMapping("/student/edit/{id}")
+	public String editStudentForm(@PathVariable Long id,Model model) {
+		model.addAttribute("student", service.getStudentById(id));
 		return "editstudent";
 		
 	}
 	
-	@PostMapping("/student/{StudentId}")
-	public String updateStudent(@PathVariable Long StudentId,
+	@PostMapping("/student/{id}")
+	public String updateStudent(@PathVariable Long id,
 			@ModelAttribute("student") Student student,
 			Model model) {
-		Student existingStudent=service.getStudentById(StudentId);
-		existingStudent.setStudentId(student.getStudentId());
+		Student existingStudent=service.getStudentById(id);
+		existingStudent.setId(id);
 		existingStudent.setFirstname(student.getFirstname());
 		existingStudent.setLastname(student.getLastname());
 		existingStudent.setEmail(student.getEmail());
 		
 		service.updateStudent(existingStudent);
-		return "redirect:/students";
+		return "redirect:/student";
 		
 		
 		
