@@ -2,7 +2,7 @@ package com.example.string;
 
 import java.util.Scanner;
 
-// Java Program to divide a string in 'N' equal parts.
+//5.Java Program to divide a string in 'N' equal parts.
 
 public class DivideAStringN {
     public static void main(String args[]) {
