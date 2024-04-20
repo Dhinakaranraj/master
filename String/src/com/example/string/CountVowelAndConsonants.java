@@ -1,6 +1,6 @@
 package com.example.string;
 
-// Java Program to count the total number of vowels and consonants in a string
+//10.Java Program to count the total number of vowels and consonants in a string
 
 public class CountVowelAndConsonants {
     public static void main(String args[]) {
