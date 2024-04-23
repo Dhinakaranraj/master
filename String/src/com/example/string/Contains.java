@@ -21,8 +21,9 @@ public class Contains {
 				
 				for(int j=0; j<str1.length(); j++) {
 					
-					if(str1.charAt(j)==str.charAt(i+j)) {
+					if(str1.charAt(j)==str.charAt(i)) {
 						count++;
+						i++;
 						
 					}
 				}
