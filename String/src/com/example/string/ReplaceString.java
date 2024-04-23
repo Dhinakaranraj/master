@@ -2,7 +2,7 @@ package com.example.string;
 
 import java.util.Scanner;
 
-//16..Java program to string replace first
+//16.Java program to string replace first
 
 public class ReplaceString {
 
