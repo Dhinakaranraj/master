@@ -66,6 +66,14 @@ public class ReplaceString {
 		System.out.print(sb);
 	}
 }
-	
-		
+
+//class HelloWorld {
+//    public static void main(String[] args) {
+//        
+//        String s1="a rose is a rose is a rose";
+//        s1=s1.replaceFirst("rose","jasmine");
+//        System.out.print(s1);
+//    }
+//}
+
 	
