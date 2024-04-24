@@ -32,3 +32,13 @@ public class StripLeading {
 	}
 
 }
+
+//class HelloWorld {
+//    public static void main(String[] args) {
+//        String s1="     Today is funday";
+//        System.out.println(s1);
+//        s1=s1.stripLeading();
+//        System.out.println(s1);
+//      
+//    }
+//}

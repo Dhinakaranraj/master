@@ -32,3 +32,12 @@ public class StartWithFun {
 		
 	}
 }
+
+//class HelloWorld {
+//    public static void main(String[] args) {
+//        String s1="Today is funday";
+//        String s2="Today";
+//        boolean result=s1.startsWith(s2);
+//        System.out.print(result);
+//    }
+}
