@@ -2,7 +2,7 @@ package com.example.string;
 
 import java.util.Scanner;
 
-//22.18.Java program to string convert lower case without using lower case function
+//22.Java program to string convert lower case without using lower case function
 
 public class ConvertLowerCase {
      public static void main(String[] args) {
