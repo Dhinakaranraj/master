@@ -40,4 +40,4 @@ public class StartWithFun {
 //        boolean result=s1.startsWith(s2);
 //        System.out.print(result);
 //    }
-}
+//}
