@@ -5,7 +5,7 @@ import java.util.Scanner;
 //27.java program to print first repeated character 
 
 public class FirstRepeatedCharacter {
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Enter the String:");
